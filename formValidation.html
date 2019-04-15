@@ -1,0 +1,199 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+<!--Meta Tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel='stylesheet' href="./style1.css">
+   
+<!--Font Awesome CSS -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <title>Form Validation</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+<section id="showCase ">
+<a href="./Home.html" style="text-decoration: none;border: none" class="btn btn-outline-secondary">Back to Homepage</a>
+<section class="bg-danger p-4 text-center" style="opacity: 0.8">
+	
+	<div class="container-fluid">
+	
+	<h3 id="tog" style=" color: white;">Current Openings <span class="badge" style="position: relative;"> 2</span></h3>
+
+    </div>
+</section>
+</section>
+
+
+<section class="bg-light text-dark " >
+	<div class="container">
+		
+		<div class="row ">
+			
+
+			<div class="col-lg p-4 ">
+				<a href="./formValidation.html" style="text-decoration: none;color: black;"><p class="lead">JavaScript Engineer</p></a>
+			    <a href="./formValidation.html" style="text-decoration: none;color: black;"><p class="lead"> Senior PHP Developer</p></a>
+			</div>
+	
+		<div class=" col-lg p-4 ">
+		<p class=" text-break">Intrested Candidates may feel free to fill up the form.</p>
+		
+		
+		
+		<form>
+       
+       <div class="input-group  mb-3">
+  <div class="input-group-prepend">
+     <select name="jobs" class="custom-select">
+    <option selected>Select Current Openings</option>
+    <option value="volvo">JavaScript Engineer</option>
+    <option value="fiat">Senior PHP Developer </option>
+    <option value="audi">Internship oppurtunity</option>
+  </select>
+        </div>
+    </div>
+
+
+
+        <div class="input-group mb-3">
+         <div class="input-group-prepend">
+          <span class="input-group-text">Name</span>
+         </div>
+    <input type="text" class="form-control" placeholder="Name" id="formName"><span id="errorName"></span>
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Your Email" id="formEmail"><span id="errorEmail"></span>
+   
+  </div>
+
+<div class="input-group mb-3">
+   
+    <div class="input-group-prepend">
+      <span class="input-group-text">Cover Letter</span>
+    </div>
+  <textarea type="text" class="form-control" placeholder="Cover Letter"></textarea><span id="errorCover"></span>
+  </div>
+
+<label for="demo">Upload your Resume here:</label>
+<div class="custom-file mb-3">
+    <input type="file" class="custom-file-input" id="customFile"><span id="errorFile"></span>
+    <label class="custom-file-label" for="customFile">Choose file</label>
+  </div>
+
+<div class="input-group mb-3">
+<button type="submit" class="btn btn-outline-secondary">Submit </button>
+
+</form>
+<p class="visible"></p>
+	</div>
+		
+		</div>
+	</div>
+</section>
+
+
+<footer id="footSection">
+	<div class="bg-secondary text-center" style="opacity: 0.7;color: white">
+		 <div class="text-center p-5 ">
+    <div class="container">
+      <p class="lead"> LEE Enterprises Copyright,&copy; 2019</p>
+    </div>
+  </div>
+	</div>
+</footer>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+var x=$('#tog');
+var y=$('.badge');
+
+x.on('mouseenter',function(){
+console.log("btn clicked");
+
+x.slideToggle();
+	});
+
+x.on('mouseleave',function(){
+console.log(" clicked");
+
+x.slideToggle();
+	});
+
+y.on('mouseenter',function(){
+	console.log("moved");
+
+	y.animate({left:400});
+	y.animate({left:0});
+});
+
+// Form Validation
+$('#formName').focusout(function(){
+	checkName();
+});
+function checkName(){
+	var error_Msg_Name=false;
+	$('#errorName').hide();
+	var nameLength=$('#formName').val().length;
+if (nameLength < 5 || nameLength >20) {
+	
+
+$('#errorName').html(' should be 5 -20 characters');
+$('#errorName').show();
+error_Msg_Name=true;
+} 
+else{
+	$('#errorName').hide();
+}
+console.log(nameLength);
+}
+
+
+
+$('#formEmail').focusout(function(){
+checkEmail();
+});	
+function checkEmail(){
+	var error_Msg_email=false;
+	$('#errorEmail').hide();
+	  var pattern = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+if (pattern.test($('#formEmail').val())) {
+	$('#errorEmail').hide();
+} else {
+	$('#errorEmail').html('Invalid E-mail Address');
+	$('#errorEmail').show();
+	error_Msg_email=true;
+}
+}
+
+
+$(':submit').on('click',function(e){
+e.preventDefault();
+error_Msg_Name=false;
+error_Msg_email=false;
+
+checkName();
+checkEmail();
+if (error_Msg_Name==false && error_Msg_email==false) {
+	
+	return $('p.visible').html('The form has been Submitted');
+	
+} 
+else{return false;}
+});
+});
+
+
+</script>
+</body>
+</html>

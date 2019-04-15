@@ -1,0 +1,61 @@
+body,html{
+	font-family: "lato",sans-serif;
+	font-size: 16px;
+	color:#666;
+	line-height: 1.8em;
+	margin:0;
+	height: 100%;
+	font-weight: 400;
+
+}
+.pimg1{background-image: url('./img/nepal1.jpeg');
+min-height: 100%;}
+.pimg2{background-image: url('./img/nepal3.jpeg');
+min-height: 500px;}
+.pimg1,.pimg2{
+	
+position: relative;
+opacity: 0.9;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+
+}
+.section{
+	text-align: center;
+	padding: 50px 80px;
+}
+.section-light{
+	background-color: #f4f4f4;
+}
+.section-dark{
+	background-color: black;
+	color: #666;
+}
+.ptext{
+	position:absolute;
+	top:50%;
+	width:100%;
+	text-align: center;
+	color:#ddd;
+	font-size: 24px;
+	letter-spacing: 8px;
+	text-transform: uppercase;
+}
+.border{
+	
+	padding: 4px;
+	color: #fff;
+}
+.border .border-trans{
+	background-color:  transparent;
+	
+
+}
+@media(max-width: 568px){
+	.pimg1,.pimg2{background-attachment: scroll;}
+}
+.back ,a:hover{color:  #d64d2f !important;
+}
+.back,a{color: #666 !important;}

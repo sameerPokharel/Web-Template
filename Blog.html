@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<!--Meta Tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel='stylesheet' href="./style1.css">
+   
+<!--Font Awesome CSS -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <title>Blog</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="./blogStyle.css">
+  </head>
+  <body>
+   <div class="back">
+    <a href="./Home.html" style="text-decoration: none;border:none;" class="btn btn-outline-light ">Back to Homepage</a> 
+    </div>
+    <div class="pimg1">
+      <div class="ptext">
+        <span class="border">
+          Blog
+        </span>
+      </div>
+    </div>
+ 
+  <section class="section section-light">
+    <h3 class="display-5"> Visit Nepal #2020</h2>
+  <p class="text-break">Nepal is a spiritual experience as well as a challenging sporting opportunity.
+
+Modern life has many benefits to offer in terms of material comfort and technology which seemingly make for an easy life. Many are therefore driven to improve their lot, gain promotion, and the respect of those around them. However the stress created by modern life is a killer, and often offsets these benefits.
+
+For many a tour in Nepal is all about the challenge of the magnificent Himalayas. Overcoming the odds can be an excellent form of escapism and give a great sense of achievement. Trekking and climbing represent an escape from the pressures of everyday life. In a largely secular world they are in reality a form of pilgrimage.
+
+Many are drawn to the many other breathtaking sporting opportunities, others by the magnificent architecture. For some it is about the people and culture, ecology and conservation.</p>
+  
+  </section>
+
+<div class="pimg2">
+  <div class="ptext">
+    <span class=' border-trans text-break'>    
+Posted by Mr.Robot | March 16,2019
+  </span>
+
+  </div>
+</div>
+  
+  <section class="section section-dark">
+   
+    <p class="text-break">'NEPAL: BACK ON TOP OF THE WORLD'.</p>
+    
+    <p>Among infinite exquisiteness Nepal’s capital Kathmandu has to offer, the holiest Hindu shrine Pashupatinath – the home of Lord Shiva – often tops the list. On the bank of holy Bagmati River stands the sacred century-old temple, the epitome of Hinduism and divine energy. Call it the guardian deity of the Himalayan country or the supreme pilgrimage of Hindu devotees from across the world; the glory of a UNESCO World Cultural Heritage Site Pashupatinath cannot be limited in just few phrases.</p>
+ <button class="btn btn-outline btn-primary text-center">Read More</button>
+  </section>
+
+<section class="bg-secondary text-muted p-4">
+  
+  <div class="container">
+    <div class="row">
+     
+      <div class="col-lg m-auto">
+         
+         <div class="d-flex flex-row justify-content-start"> 
+     <div class="userPic m-3">
+   <i class="fa fa-user" style="font-size: 32px; color: white; margin-right: 5px;"></i>
+    </div>
+   
+   <div class="m-3">
+   <h3  class="text-break" style="color: white;"> Add Comment:</h3>
+ </div>
+ 
+ </div>
+    </div>
+</section>
+    
+     <div class="container">
+      <form id="postForm" action="https://jsonplaceholder.typicode.com/comments" >
+      <div class="title m-2 p-2">
+         <input type="text" class="form-control" placeholder=" Username" id="title"><span id="errorMsg"></span>
+      </div>
+     <div class="body m-2 p-2">
+      <textarea type="text" placeholder="Add Comment" class="form-control" id='body'></textarea>
+      <input type="submit" name="Submit" value="submit" class="btn btn-outline-dark btn-md m-2">
+      </div>
+     </form>
+    </div>
+    
+    
+
+
+<div class="container ">
+  <div class="users" style="color: #666;">
+    
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+//Ajax method to fetch API
+$.ajax({url:'https://jsonplaceholder.typicode.com/comments',
+  method:"GET",datatype:'json'}).done(function(data){
+    console.log(data);
+  $.map(data,function(post){
+   $ ('.users').append('<h3>'+post.email+'</h3><p>'+post.body+'</p>') 
+  })
+ 
+  });
+
+$('#postForm').submit(function(e){
+  if($('#title').val()===null && $('#body').val()===null){
+return null;
+  }
+  else{
+    e.preventDefault();
+  var title=$('#title').val();
+  var body=$('#body').val();
+  var url=$(this).attr('action');
+
+  $.post(url,{title:title,body:body}).done(function(data){
+    console.log(data);
+   $('.users').prepend('<h3>'+data.title+'</h3><p>'+data.body+'</p>');
+     })
+   }
+ });
+ 
+ $('#title').focusout(function(){
+checkEmail();
+}); 
+function checkEmail(){
+  var error_Msg_email=false;
+  $('#errorMsg').hide();
+    var pattern = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+if (pattern.test($('#title').val())) {
+  $('#errorMsg').hide();
+} else {
+  $('#errorMsg').html('Enter  valid Email - Address');
+  $('#errorMsg').show();
+  error_Msg_email=true;
+}
+}
+ 
+});
+
+
+
+</script>
+  </body>
+  </html>  

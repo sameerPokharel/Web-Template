@@ -1,0 +1,48 @@
+
+
+.navbar{
+	opacity: 0.8;
+	border-bottom: #4f6811 3px solid;
+}
+#header{
+	background: url('./img/about.jpeg') no-repeat;
+	min-height: 600px;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.textVisible{
+	background-color: rgba(0,0,0,0.7);
+	position:absolute;
+	top:0 ;left: 0;width: 100%;min-height: 600px;
+}
+.textInner{
+	padding-top:180px; 
+	color: #4f6811;}
+
+
+#section{
+	background-color:#97a574;
+
+}
+.text{
+	color:white;
+}
+
+#sectionBody i{font-size: 52px;
+		color: green;
+		border-radius: 5px solid green;
+
+		}
+
+#career i
+	{
+		
+		color:white;
+		font-size: 48px;
+		border-radius: 5px;
+	
+	padding:5px;}
+	
+
+
+	
